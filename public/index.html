@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>User Card With Light/Dark Switch</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="bg-blue-100 dark:bg-gray-800 transition-colors ease-linear duration-500 font-poppins">
+  <section class="sec relative min-h-screen flex justify-center items-center">
+    <div class="card relative w-[300px] h-[380px] bg-white shadow-lg rounded-2xl flex justify-center items-center transition-colors ease-linear duration-500 dark:bg-gray-700">
+      <div class="toggle absolute top-5 right-5 bg-blue-100 dark:bg-gray-600 text-blue-400 dark:text-white w-[30px] h-[30px] rounded-full flex justify-center items-center cursor-pointer transition duration-500">
+        <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+      </div>
+      <div class="content flex justify-center items-center flex-col">
+        <div class="imgText flex justify-center items-center flex-col">
+          <div class="imgBox relative w-[120px] h-[120px] overflow-hidden rounded-full mb-[15px]">
+            <img class="absolute top-0 left-0 w-full h-full object-cover" src="./img.jpg" alt="">
+          </div>
+          <h3 class="text-blue-400 font-medium text-2xl leading-5 text-center">Jane Doe<br><span class="font-normal text-gray-600 dark:text-gray-500 text-base transition ease-linear duration-500">Designer</span></h3>
+        </div>
+        <ul class="sci flex mt-4">
+          <li><a href="#" class="relative w-[50px] h-[50px] bg-blue-100 text-blue-400 my-0 mx-1 flex justify-center items-center no-underline rounded-full text-xl transition-all ease-linear duration-500 dark:bg-gray-600 hover:text-white before:absolute before:w-full before:h-full before:bg-blue-400 before:rounded-full before:transform before:scale-0 before:duration-500 hover:before:transform hover:before:scale-100"><i class="fa fa-facebook relative z-50" aria-hidden="true"></i>
+            </a></li>
+          <li><a href="#" class="relative w-[50px] h-[50px] bg-blue-100 text-blue-400 my-0 mx-1 flex justify-center items-center no-underline rounded-full text-xl transition-all ease-linear duration-500 dark:bg-gray-600 hover:text-white before:absolute before:w-full before:h-full before:bg-blue-400 before:rounded-full before:transform before:scale-0 before:duration-500 hover:before:transform hover:before:scale-100"><i class="fa fa-twitter relative z-50" aria-hidden="true"></i>
+            </a></li>
+          <li><a href="#" class="relative w-[50px] h-[50px] bg-blue-100 text-blue-400 my-0 mx-1 flex justify-center items-center no-underline rounded-full text-xl transition-all ease-linear duration-500 dark:bg-gray-600 hover:text-white before:absolute before:w-full before:h-full before:bg-blue-400 before:rounded-full before:transform before:scale-0 before:duration-500 hover:before:transform hover:before:scale-100"><i class="fa fa-linkedin relative z-50" aria-hidden="true"></i>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    const html = document.querySelector('.html');
+    const toggle = document.querySelector('.toggle');
+    toggle.onclick = () => {
+      html.classList.toggle('dark');
+    }
+  </script>
+</body>
+
+</html>
